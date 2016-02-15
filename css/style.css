@@ -1,0 +1,39 @@
+body, html, .wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+h1{
+  text-align: center;
+}
+
+.wrapper{
+  display: table;
+}
+
+#input{
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+}
+
+#searchBox {
+  display: block;
+  border: 1px solid #000;
+  border-radius: 5px;
+  height: 5%;
+  width: 30%;
+  margin: 0 auto;
+  outline: none;
+  font-size: 100%;
+}
+
+#searchBox:focus {
+  border-color: #4d90fe;
+}
+
+#results{
+  display: none;
+  float: bottom;
+}
