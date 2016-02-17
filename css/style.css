@@ -1,4 +1,7 @@
-body, html, .wrapper {
+
+
+body, html {
+  background: #fbfbfb;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -9,31 +12,149 @@ h1{
 }
 
 .wrapper{
-  display: table;
+  display: block;
+  height: 70%;
+  position: absolute;
+  top: 20%;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
-#input{
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0;
+#search-container {
+  position: absolute;  
+  margin: auto;
+  left: 0;
+  right: 0;
+  max-width: 650px;
+  width: 80%;
+  max-height: 8em;
+  height: 50%;
+}
+
+#search-wrapper{
+  background: #FFF;
+  height: 2.8em;
+}
+
+#search-form {  
+  border: 1px solid #D0D0D0;
+  border-radius: 2px;
+  padding-left: 0.5em;
+  padding-right: 6em;
+  height: inherit;
 }
 
 #searchBox {
-  display: block;
-  border: 1px solid #000;
-  border-radius: 5px;
-  height: 5%;
-  width: 30%;
-  margin: 0 auto;
+  width: 100%;
+  font-size: 130%;
   outline: none;
-  font-size: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  z-index: 1;
+  color: #555;
 }
 
-#searchBox:focus {
-  border-color: #4d90fe;
+#search-button {
+  font-size: 180%;
+  border-radius: 2px;
+  background: transparent;  
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  height: inherit;
+  opacity: 0.5;
+  position: absolute;  
+  top: 1px;
+  bottom: 0;
+  right: 0;
 }
+
+#search-button:hover{
+  background-color: #d7b62c;
+  color: #DDD;
+  opacity: 0.8;
+}
+
+#clean-search {
+  font-size: 150%;
+  border-radius: 2px;
+  background: transparent;  
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  height: inherit;
+  margin-right: 50px;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;  
+  top: 1px;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
+
+#clean-search:hover{
+  opacity: 0.8;
+}
+
+
+#random{
+  font-size: 100%;
+  border: 1px solid #D0D0D0;
+  border-radius: 2px;
+  background: #D9D9D9;   
+  cursor: pointer;
+  text-align: center;  
+  padding: 10px;
+  display: block;  
+  margin: 0 auto;
+  right: 0;
+  color: #555;
+  margin-top: 35px;
+}
+
+#random:hover{
+  border: 1px solid #A6A6A6;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  color: #000;
+}
+
+#logo {
+  display: block;
+  max-width: 150px;
+  margin: 20px auto;
+}
+
+#title {
+    font-size: 3em;
+    padding: 20px;
+  }
 
 #results{
   display: none;
   float: bottom;
+}
+
+.material-icons{
+
+}
+
+@media only screen and (max-height: 500px){
+  #logo {
+    max-width: 80px;   
+  }
+
+  .wrapper{    
+    top: 10%;   
+  }
+
+  #title {
+    font-size: 2em;
+  }
+
+  #random {
+    margin-top: 15px;
+  }
 }

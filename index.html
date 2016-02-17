@@ -3,17 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
   <title>Wiki Searcher</title>
 </head>
 <body>
   <div class="wrapper">
-    <div id="input">
-      <h1>Whatever you want to know, wikipedia is here for you!</h1>
-      <input type="text" id="searchBox" placeholder="Give it a try!" >
+    <div id="head-page">
+      <img src="img/wikipedia-logo.png" alt="wikipedia logo" id="logo">
+      <h1 id="title">Wikipedia Search Engine</h1>
+    </div>
+    <div id="search-container">
+      <div id="search-wrapper">
+        <form id="search-form" action="" method="GET" name="x">
+          <input type="text" id="searchBox"  tabindex="1" autofocus="autofocus" >
+          <input id="search-button" class="material-icons" typeindex="2" type="submit" value="search">
+          <input id="clean-search" class="material-icons" type="button" value="highlight_off">
+          <div id="search-autocomplete">
+            <div id="autocomplete-wrapper">
+              <div class="autocomplete-results0"></div>
+              <div class="autocomplete-results1"></div>
+              <div class="autocomplete-results2"></div>
+              <div class="autocomplete-results3"></div>
+              <div class="autocomplete-results4"></div>
+              <div class="autocomplete-results5"></div>
+              <div class="autocomplete-results6"></div>
+              <div class="autocomplete-results7"></div>
+              <div class="autocomplete-results8"></div>
+              <div class="autocomplete-results9"></div>
+            </div>
+          </div>
+        </form>
+      </div>      
+        <button id="random">I Want To Learn About</button>
+      </div>
     </div>
     <div id="results">sksjskjsk</div>
-  </div>
+  </div> 
 </body>
 </html>
