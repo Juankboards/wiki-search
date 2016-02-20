@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
   <title>Wiki Searcher</title>
@@ -14,34 +15,38 @@
   <div class="wrapper">
     <div id="head-page">
       <img src="img/wikipedia-logo.png" alt="wikipedia logo" id="logo">
-      <h1 id="title">Wikipedia Search Engine</h1>
+      <h1 id="tittle">Wikipedia Search Engine</h1>
     </div>
     <div id="search-container">
       <div id="search-wrapper">
-        <form id="search-form" action="" method="GET" name="x">
-          <input type="text" id="searchBox"  tabindex="1" autofocus="autofocus" >
+        <form id="search-form">
+          <input type="text" id="searchBox" tabindex="1" autofocus="autofocus" autocomplete="off">
           <input id="search-button" class="material-icons" typeindex="2" type="submit" value="search">
           <input id="clean-search" class="material-icons" type="button" value="highlight_off">
           <div id="search-autocomplete">
             <div id="autocomplete-wrapper">
-              <div class="autocomplete-results0"></div>
-              <div class="autocomplete-results1"></div>
-              <div class="autocomplete-results2"></div>
-              <div class="autocomplete-results3"></div>
-              <div class="autocomplete-results4"></div>
-              <div class="autocomplete-results5"></div>
-              <div class="autocomplete-results6"></div>
-              <div class="autocomplete-results7"></div>
-              <div class="autocomplete-results8"></div>
-              <div class="autocomplete-results9"></div>
+              <div id="auto-1" class="autocomplete"></div>
+              <div id="auto-2" class="autocomplete"></div>
+              <div id="auto-3" class="autocomplete"></div>
+              <div id="auto-4" class="autocomplete"></div>
             </div>
           </div>
         </form>
       </div>      
-        <button id="random">I Want To Learn About</button>
+        <button id="random">Somethin About</button>
       </div>
-    </div>
-    <div id="results">sksjskjsk</div>
-  </div> 
+      <div id="results">
+        <div id="result-1" class="result"></div>
+        <div id="result-2" class="result"></div>
+        <div id="result-3" class="result"></div>
+        <div id="result-4" class="result"></div>
+        <div id="result-5" class="result"></div>
+        <div id="result-6" class="result"></div>
+        <div id="result-7" class="result"></div>
+        <div id="result-8" class="result"></div>
+        <div id="result-9" class="result"></div>
+        <div id="result-10" class="result"></div>
+      </div>
+    </div>     
 </body>
 </html>
