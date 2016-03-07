@@ -22,21 +22,21 @@ $(document).ready(function(){
   	'click': function (){
   		function randomWiki(){
 		  window.open("https://en.wikipedia.org/wiki/Special:RandomInCategory/"
-		  			+ category);	
+		  			+ category);
    		  $("#random").html("Somethin About");
 		}
   		var category = WikiCategories[Math.floor(Math.random()*12)];
   		$("#random").html(category);
-  		window.setTimeout(randomWiki,1000); 		
+  		window.setTimeout(randomWiki,1000);
   		}
   	});
 
   //--------highlight the autocomplet when press down/up arrows
-  $(document).keyup(function (event){ 
+  $(document).keyup(function (event){
     var highlight = $('div.highlight');
-    		
 
-    if (searchBox.value!="") {   
+
+    if (searchBox.value!="") {
     	if (event.keyCode == 27) {
     		$("#search-autocomplete").css("display","none");
     	}else if (event.keyCode == 40 && jsonQuery) {
@@ -44,36 +44,36 @@ $(document).ready(function(){
 	  	  	//-----highlight the first result when there is no highlight
 	  	  	SearchEntered = searchBox.value;
 	  	    $('div.autocomplete').eq(0).addClass('highlight');
-	  	    searchBox.value = $('div.autocomplete').eq(0).html(); 
+	  	    searchBox.value = $('div.autocomplete').eq(0).html();
 	  	  } else{
-	  	  		//-------highlight the div underneath highlight 
+	  	  		//-------highlight the div underneath highlight
 	  	      highlight.removeClass('highlight').next().addClass('highlight');
-	  	      searchBox.value = highlight.next().html(); 
+	  	      searchBox.value = highlight.next().html();
 		      if (highlight.next().length == 0) {
 		      	//-------unhighlight when is the last result highlighted
 		        highlight.removeClass('highlight');
 		        searchBox.value = SearchEntered;
 		      }
-	  		}	 
-	  	     
+	  		}
+
 	  } else if (event.keyCode === 38 && jsonQuery) {
 	    	if (highlight.attr("class") == undefined) {
-	    		//-----highlight the last result when there is no highlight 
+	    		//-----highlight the last result when there is no highlight
 	    		//-----and put the original search in the searchbox
 	    		SearchEntered = searchBox.value;
 	  		  $("div.autocomplete").eq(-1).addClass("highlight");
-	  		  searchBox.value = $("div.autocomplete").eq(-1).html(); 
+	  		  searchBox.value = $("div.autocomplete").eq(-1).html();
 	  		} else{
-	  			//-------highlight the div above highlight 
+	  			//-------highlight the div above highlight
 	  		  highlight.removeClass("highlight").prev().addClass("highlight");
-	  		  searchBox.value = highlight.prev().html(); 
+	  		  searchBox.value = highlight.prev().html();
 		      if (highlight.prev().length == 0) {
 		      	//-------unhighlight when is the first result highlighted
 		      	//-----and put the original search in the searchbox
 		        highlight.removeClass("highlight");
 		        searchBox.value = SearchEntered;
-		      } 
-	  		}	              
+		      }
+	  		}
 	    } else if (event.keyCode > 49 || event.keyCode===8 && event.keyCode!==13) {
 	    	//-----unhighlight the divs when refresh the search when an autocomplete
 	    	//------and put the new search in the searchbox
@@ -83,37 +83,37 @@ $(document).ready(function(){
 	    	//-----mediaWiki API url
 	    	var getTittles = "http://en.wikipedia.org/w/api.php?format=json"
 										+"&action=query&generator=search&gsrlimit=4&gsrsearch="
-										+ SearchEntered+"&callback=?"; 
+										+ SearchEntered+"&callback=?";
 
-				$.getJSON(getTittles, function(json) { 					
+				$.getJSON(getTittles, function(json) {
 			      var count = 1;
 			      console.log(json.query);
 
 			      if (!json.query){
 			      	$("#search-autocomplete").css("display","none");
 			      	jsonQuery = false;
-			      		
+
 						} else{
 							jsonQuery=true;
 				      //----put content in auto-complete box
 				      Object.keys(json.query.pages).forEach(function(key){
-				      	$("#auto-"+count).html(json.query.pages[key].title);	
-				      	count++;		      	
+				      	$("#auto-"+count).html(json.query.pages[key].title);
+				      	count++;
 				      })
-				    }			    
-			  });	
-			  if(searchBox.value!="" && jsonQuery){ 
+				    }
+			  });
+			  if(searchBox.value!="" && jsonQuery){
 			    	$("#search-autocomplete").css("display","block");
 			  }
 	    }
-	  }		 
+	  }
   });
 
-   //-----change searchbox css  
+   //-----change searchbox css
   $("#searchBox").on({
   	'keyup': function (event){
 
-  		if(this.value!=""){  			
+  		if(this.value!=""){
   			$("#search-button").css("background-color", "#537691");
   			$("#clean-search").css("display", "block");
   			$("#clean-search").click(function(){
@@ -126,20 +126,20 @@ $(document).ready(function(){
   			});
   		} else{
   			$("#search-button").css("background-color", "transparent");
-  			$("#clean-search").css("display", "none");  
+  			$("#clean-search").css("display", "none");
   			$("#search-autocomplete").css("display","none");
-  			$("div.highlight").removeClass("highlight");			
+  			$("div.highlight").removeClass("highlight");
   		}
   		if (event.keyCode===13){
   			$("#search-autocomplete").css("display","block");
   		}
   	}
-  }); 
+  });
 
   //--------highlight the autocomplet when put mouse over
-  $("div.autocomplete").mouseover(  	
+  $("div.autocomplete").mouseover(
 	  function() {
-	  	$(".highlight").removeClass("highlight")
+	  	$(".highlight").removeClass("highlight");
 	    $(this).addClass("highlight");
 	  }
 	);
@@ -147,10 +147,10 @@ $(document).ready(function(){
 	  function() {
 	    $(this).removeClass("highlight");
 	  }
-	); 		
+	);
 
   //----submit the search form when click a suggestion to search
-  $("div.autocomplete").on({  	
+  $("div.autocomplete").on({
   	'click': function (){
   	  searchBox.value=$(this).html();
   	  $("#search-form").submit();
@@ -158,13 +158,13 @@ $(document).ready(function(){
   });
 
   //Change the layout of the page when submit a search and shows the results
-  $("#search-form" ).submit(function(event) { 
+  $("#search-form" ).submit(function(event) {
   	//-----mediaWiki API url results
 	  var getResults = "http://en.wikipedia.org/w/api.php?format=json&action=query"
 	  								+"&generator=search&gsrlimit=10&prop=extracts&exintro"
 	  								+"&explaintext&exchars=100&exlimit=max&gsrsearch="
-										+ searchBox.value+"&callback=?"; 
-		$.getJSON(getResults, function(json) { 
+										+ searchBox.value+"&callback=?";
+		$.getJSON(getResults, function(json) {
       var counter=1;
 
       //----put content in auto-complete box
@@ -176,8 +176,8 @@ $(document).ready(function(){
       		+"</h1><p class='result-text'>"
       		+json.query.pages[key].extract
       		+"</p></a>");
-        counter++;     
-      })	 
+        counter++;
+      })
 		});
 
   	event.preventDefault();
@@ -189,5 +189,5 @@ $(document).ready(function(){
 	  $("#searchBox").blur();
 	  $("#logo").css("display","none");
 	  $(".wrapper").css("top","3%");
-	}); 
+	});
 });
